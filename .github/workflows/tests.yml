@@ -6,9 +6,6 @@ on:
       - master
       - gsocpractice
 
-
-
-
 jobs:
   test:
     name: Run Tests
