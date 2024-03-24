@@ -3,9 +3,9 @@ name: Run Tests
 on:
   push:
     branches:
-      - main
-      - gsoc
-      
+      - master
+      - gsocpractice
+
 
 jobs:
   test:
