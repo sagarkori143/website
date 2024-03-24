@@ -4,6 +4,7 @@ Follow the [AsyncAPI CLI installation](https://github.com/asyncapi/cli#installat
 <details>
 <summary>MacOS</summary>
 
+
 `brew`
 <br/>
 You can install in MacOS via brew: `brew install asyncapi`.
