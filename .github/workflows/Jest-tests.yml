@@ -1,0 +1,47 @@
+name: Run Tests on PR
+
+on:
+  pull_request:
+    branches: [main, gsoc]
+
+jobs:
+  test:
+    name: Run Jest Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Report Test Results
+        if: always()
+        uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const testResult = fs.readFileSync('test-results.json', 'utf8');
+            const { data } = await github.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Jest Tests',
+              head_sha: context.sha,
+              status: 'completed',
+              conclusion: testResult === 'pass' ? 'success' : 'failure',
+              output: {
+                title: 'Test Results',
+                summary: 'Jest tests results',
+                text: 'Detailed test results...'
+              }
+            });
