@@ -1,0 +1,58 @@
+name: Cypress E2E Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests in headless mode
+        run: npx cypress run
+
+      - name: Post Success Comment
+        if: ${{ success() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: Cypress Test Results
+          message: |
+            Your changes have been tested end to end and have passed all the tests 🚀
+            Please check the logs for details.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Post Failure Comment
+        if: ${{ failure() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: Cypress Test Results
+          message: |
+            Your changes could not pass the tests ❌
+            Please check the logs for details.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

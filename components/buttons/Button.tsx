@@ -33,6 +33,8 @@ type IButtonProps = {
 
   /** The target attribute for the anchor tag. Defaults to '_self'. */
   target?: string;
+  /** The testing attribute for the button component */
+  'data-testid'?:string;
 } & (
   | ({
       // eslint-disable-next-line prettier/prettier
@@ -60,6 +62,7 @@ export default function Button({
   bgClassName = twMerge('bg-primary-500 hover:bg-primary-400'),
   textClassName = twMerge('text-white'),
   buttonSize,
+  'data-testid': testId,
   ...props
 }: IButtonProps): React.ReactElement {
   const smallButtonClasses = twMerge(`${bgClassName} ${textClassName} transition-all duration-500
@@ -73,7 +76,6 @@ export default function Button({
         {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
         type={type}
         className={buttonSize === ButtonSize.SMALL ? smallButtonClasses : classNames}
-        data-testid='Button-main'
       >
         {icon && iconPosition === ButtonIconPosition.LEFT && (
           <span className='mr-2 inline-block' data-testid='Button-icon-left'>
@@ -96,7 +98,7 @@ export default function Button({
       target={target}
       rel='noopener noreferrer'
       className={buttonSize === ButtonSize.SMALL ? smallButtonClasses : classNames}
-      data-testid='Button-link'
+      data-testid={testId || 'Button-main'}
     >
       {icon && iconPosition === ButtonIconPosition.LEFT && <span className='mr-2 inline-block'>{icon}</span>}
       <span className='inline-block'>{text}</span>

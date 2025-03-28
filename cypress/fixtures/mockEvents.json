@@ -1,0 +1,43 @@
+[
+    {
+      "title": "AsyncAPI Mentorship Program Kick-Off",
+      "calLink": "https://www.google.com/calendar/event?eid=aGg5cGtwdGV0YmpzbnBlcmdwYjFqMjU1cTQgY19xOXRzZWlnbG9tZHNqNm5qdWh2YnB0czExY0Bn",
+      "url": "https://github.com/asyncapi/community/issues/1599",
+      "banner": "https://github.com/user-attachments/assets/739381b2-b7de-4e08-b845-04e5a07ba7e0",
+      "date": "2099-12-31T13:00:00.000Z",
+      "category": "Upcoming"
+    },
+    {
+      "title": "AsyncAPI Community Meeting",
+      "calLink": "https://www.google.com/calendar/event?eid=abc123",
+      "url": "https://github.com/asyncapi/community/issues/1600",
+      "banner": "https://github.com/user-attachments/assets/12345678-aaaa-bbbb-cccc-987654321000",
+      "date": "2099-11-30T15:30:00.000Z",
+      "category": "Upcoming"
+    },
+    {
+      "title": "AsyncAPI Past Workshop",
+      "calLink": "https://www.google.com/calendar/event?eid=xyz789",
+      "url": "https://github.com/asyncapi/community/issues/1601",
+      "banner": "https://github.com/user-attachments/assets/abcdef12-3456-7890-abcd-ef1234567890",
+      "date": "2023-01-15T10:00:00.000Z",
+      "category": "Recorded"
+    },
+    {
+      "title": "AsyncAPI API Design Discussion",
+      "calLink": "https://www.google.com/calendar/event?eid=xyz987",
+      "url": "https://github.com/asyncapi/community/issues/1602",
+      "banner": "https://github.com/user-attachments/assets/abcdef12-3456-7890-abcd-ef1234567891",
+      "date": "2022-12-01T09:00:00.000Z",
+      "category": "Recorded"
+    },
+    {
+      "title": "AsyncAPI Community Roundtable",
+      "calLink": "https://www.google.com/calendar/event?eid=roundtable123",
+      "url": "https://github.com/asyncapi/community/issues/1603",
+      "banner": "https://github.com/user-attachments/assets/739381b2-b7de-4e08-b845-04e5a07ba7e1",
+      "date": "2025-06-15T14:00:00.000Z",
+      "category": "All"
+    }
+  ]
+  

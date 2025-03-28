@@ -9,6 +9,7 @@ import Button from './Button';
 
 interface IGithubButtonProps extends IButtonDefaultProps {
   inNav?: boolean;
+  'data-testid'?: string;
 }
 
 /**
@@ -25,7 +26,8 @@ export default function GithubButton({
   target = '_blank',
   iconPosition = ButtonIconPosition.LEFT,
   className = '',
-  inNav
+  inNav,
+  'data-testid': testId = 'Github-button',
 }: IGithubButtonProps) {
   const { t } = useTranslation('common');
 
@@ -37,7 +39,7 @@ export default function GithubButton({
       iconPosition={iconPosition}
       target={target}
       className={className}
-      data-testid='Github-button'
+      data-testid={testId}
       bgClassName='bg-gray-800 hover:bg-gray-700'
       buttonSize={inNav ? ButtonSize.SMALL : ButtonSize.DEFAULT}
     />

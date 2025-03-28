@@ -177,9 +177,9 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
 
         <nav
           className='hidden w-full space-x-4 lg:flex lg:items-center lg:justify-end xl:space-x-8'
-          data-testid='Navbar-main'
+          data-testid='Navbar-Main'
         >
-          <div className='relative' onMouseLeave={() => showMenu(null)} ref={learningRef}>
+          <div className='relative' onMouseLeave={() => showMenu(null)} ref={learningRef} data-testid="Navbar-Docs-Link">
             <NavItem
               text='Docs'
               href='/docs'
@@ -187,10 +187,10 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
               onMouseEnter={() => showMenu('learning')}
               hasDropdown
             />
-            {open === 'learning' && <LearningPanel />}
+            {open === 'learning' && <LearningPanel data-testid="LearningPanel"   />}
           </div>
 
-          <div className='relative' onMouseLeave={() => showMenu(null)} ref={toolingRef}>
+          <div className='relative' onMouseLeave={() => showMenu(null)} ref={toolingRef} data-testid="Navbar-Tools-Link">
             <NavItem
               text='Tools'
               href='/tools'
@@ -201,7 +201,7 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
             {open === 'tooling' && <ToolsPanel />}
           </div>
 
-          <div className='relative' onMouseLeave={() => showMenu(null)} ref={communityRef}>
+          <div className='relative' onMouseLeave={() => showMenu(null)} ref={communityRef} data-testid="Navbar-Community-Link">
             <NavItem
               text='Community'
               href='/community'
@@ -239,6 +239,7 @@ export default function NavBar({ className = '', hideLogo = false }: NavBarProps
               href='https://github.com/asyncapi/spec'
               className='ml-2 py-2'
               inNav={true}
+              data-testid="Navbar-Github-Btn"
             />
           </div>
         </nav>

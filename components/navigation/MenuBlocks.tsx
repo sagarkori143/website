@@ -19,13 +19,14 @@ export interface MenuItem {
 
 export interface MenuBlocksProps {
   items?: MenuItem[];
+  'data-testid'?: string;
 }
 
 /**
  * @description Component representing a set of menu blocks.
  * @param {MenuItem[]} [props.items=[]] - The list of items to be displayed in the menu blocks.
  */
-export default function MenuBlocks({ items = [] }: MenuBlocksProps) {
+export default function MenuBlocks({ items = [], 'data-testid': testId }: MenuBlocksProps) {
   const router = useRouter();
 
   return (
@@ -41,7 +42,7 @@ export default function MenuBlocks({ items = [] }: MenuBlocksProps) {
             rel={isExternalHref ? 'noopener noreferrer' : undefined}
           >
             <span
-              data-testid='MenuBlocks-Link'
+              data-testid={`${testId ? `${testId}-Item-${index}` : `MenuBlocks-Item-${index}`}`}
               className={`-mx-3 mt-1 flex items-start space-x-4 rounded-lg p-3 transition duration-150 ease-in-out ${
                 router.asPath === item.href ? 'bg-secondary-100 shadow-sm' : 'hover:bg-gray-50'
               }`}
